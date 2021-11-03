@@ -10,6 +10,21 @@ require_once "classes/Bagetomat.php";
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+     $mybagetomat = new Bagetomat(99,42,0);
+     $mybagetomat->insertCoin(10);
+     $mybagetomat->insertCoin(20);
+     $mybagetomat->insertCoin(5);
+     $mybagetomat->insertCoin(5);
+     $mybagetomat->insertCoin(5);
+
+    $returnCoins = 0;
+     try{
+         $returnCoins = $mybagetomat->makeOrder();
+         echo "Bageta zakoupena! Vráceno: $returnCoins";
+    }catch (Throwable $th) {
+        echo $th->getMessage();
+    }
+    ?>
 </body>
 </html>
